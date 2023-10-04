@@ -1,0 +1,21 @@
+#top-header {
+  background-color: #00b96b;
+  padding: 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  #top-header {
+    width: "100%";
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 480px) {
+  #top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+    font-size: 15px;
+  }
+}
