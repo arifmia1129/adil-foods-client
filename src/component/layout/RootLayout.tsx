@@ -6,6 +6,7 @@ import MenuItems from "../Menu/MenuItems";
 import TopHeader from "../TopHeader";
 import BrandAndAccount from "../BrandAndAccount";
 import { primaryColor } from "@/utils/color";
+import CustomFooter from "../CustomFooter";
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,9 +31,7 @@ const CustomRootLayout = ({ children }: { children: React.ReactNode }) => {
       <Content style={{ padding: "0 50px" }}>
         <div className="site-layout-content">{children}</div>
       </Content>
-      <Footer style={{ textAlign: "center" }}>
-        {new Date().getFullYear()} &copy; All rights reserved by Adil Foods BD
-      </Footer>
+      <CustomFooter />
     </Layout>
   );
 };
