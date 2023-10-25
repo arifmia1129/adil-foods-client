@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu } from "antd";
 import Link from "next/link";
+import { primaryColor } from "@/utils/color";
 
 const MenuItems = () => {
   const menuItems = [
@@ -11,11 +12,10 @@ const MenuItems = () => {
   ];
   return (
     <Menu
-      theme="dark"
       mode="horizontal"
       defaultSelectedKeys={["2"]}
       items={menuItems}
-      style={{ width: "100%" }}
+      style={{ width: "100%", backgroundColor: primaryColor, color: "#fff" }}
     />
   );
 };

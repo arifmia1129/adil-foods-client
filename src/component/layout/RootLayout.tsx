@@ -5,6 +5,7 @@ import { Breadcrumb, Layout, Menu, theme } from "antd";
 import MenuItems from "../Menu/MenuItems";
 import TopHeader from "../TopHeader";
 import BrandAndAccount from "../BrandAndAccount";
+import { primaryColor } from "@/utils/color";
 
 const { Header, Content, Footer } = Layout;
 
@@ -20,6 +21,7 @@ const CustomRootLayout = ({ children }: { children: React.ReactNode }) => {
           position: "sticky",
           top: 0,
           zIndex: 100,
+          backgroundColor: primaryColor,
         }}
       >
         <div className="demo-logo" />
