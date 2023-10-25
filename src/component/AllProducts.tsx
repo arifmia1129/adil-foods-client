@@ -4,14 +4,14 @@ import Image from "next/image";
 import { primaryColor } from "@/utils/color";
 import Meta from "antd/es/card/Meta";
 
-export default function BestSellingProduct() {
+export default function AllProducts() {
   return (
     <div style={{ marginTop: 50 }}>
       <h1 style={{ fontSize: 42, textAlign: "center", marginBottom: 20 }}>
-        Our Best Selling Products
+        All Products
       </h1>
       <Row justify="center">
-        {products?.slice(0, 4)?.map((product) => (
+        {products?.map((product) => (
           <Col xs={24} sm={24} md={8} lg={6} key={product?.id}>
             <Row justify="center">
               <Card
