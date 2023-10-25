@@ -11,18 +11,13 @@ import {
 
 const BrandAndAccount = () => {
   return (
-    <Row
-      align="middle"
-      justify="center"
-      style={{ padding: "0 10px" }}
-      gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-    >
-      <Col className="gutter-row" lg={4} md={8} sm={24}>
+    <Row style={{ padding: 10 }} align="middle" justify="center">
+      <Col xs={12} sm={12} md={8} lg={8}>
         <Link href="/">
           <Image src={logo} alt="" width={100} height={100} />
         </Link>
       </Col>
-      <Col className="gutter-row" lg={8} md={8} sm={24}>
+      <Col xs={12} sm={12} md={8} lg={8}>
         <Search
           placeholder="Search anything"
           allowClear
@@ -30,54 +25,36 @@ const BrandAndAccount = () => {
           size="large"
         />
       </Col>
-      <Col className="gutter-row" lg={12} md={8} sm={24}>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col
-            lg={7}
-            style={{
-              border: "2px solid gray",
-              padding: 2,
-              borderRadius: 10,
-              margin: "5px",
-            }}
-          >
+      <Col xs={24} sm={24} md={8} lg={8}>
+        <Row align="middle">
+          <Col span={8}>
             <Link href="/">
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <UserOutlined height={500} width={500} />
+                <UserOutlined style={{ fontSize: 30, color: "black" }} />
               </div>
-              <h4 style={{ textAlign: "center" }}>My Account</h4>
+              <h3 style={{ textAlign: "center", color: "black" }}>
+                My Account
+              </h3>
             </Link>
           </Col>
-          <Col
-            lg={7}
-            style={{
-              border: "2px solid gray",
-              padding: 2,
-              borderRadius: 10,
-              margin: "5px",
-            }}
-          >
+          <Col span={8}>
             <Link href="/">
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <QuestionCircleOutlined />
+                <QuestionCircleOutlined
+                  style={{ fontSize: 30, color: "black" }}
+                />
               </div>
-              <h4 style={{ textAlign: "center" }}>Customer Help</h4>
+              <h3 style={{ textAlign: "center", color: "black" }}>
+                Customer Help
+              </h3>
             </Link>
           </Col>
-          <Col
-            lg={7}
-            style={{
-              border: "2px solid gray",
-              padding: 2,
-              borderRadius: 10,
-              margin: "5px",
-            }}
-          >
+          <Col span={8}>
             <Link href="/">
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <RightCircleOutlined />
+                <RightCircleOutlined style={{ fontSize: 30, color: "black" }} />
               </div>
-              <h4 style={{ textAlign: "center" }}>Checkout</h4>
+              <h3 style={{ textAlign: "center", color: "black" }}>Checkout</h3>
             </Link>
           </Col>
         </Row>
