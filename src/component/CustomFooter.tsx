@@ -44,6 +44,9 @@ export default function CustomFooter() {
                     <TwitterOutlined style={{ fontSize: 32, padding: 5 }} />
                   </Col>
                 </Row>
+                <p style={{ marginBottom: 10 }}>
+                  Adil Foods &copy; 2023-{new Date().getFullYear()}
+                </p>
               </div>
             </div>
           </Row>
