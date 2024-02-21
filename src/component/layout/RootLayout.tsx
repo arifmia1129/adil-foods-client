@@ -7,6 +7,7 @@ import TopHeader from "../TopHeader";
 import BrandAndAccount from "../BrandAndAccount";
 import { primaryColor } from "@/utils/color";
 import CustomFooter from "../CustomFooter";
+import Marquee from "react-fast-marquee";
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,6 +29,16 @@ const CustomRootLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="demo-logo" />
         <MenuItems />
       </Header>
+      <Marquee
+        gradient={false}
+        style={{ position: "sticky", top: 0, zIndex: 9999 }}
+      >
+        <p>
+          প্রিয় আদিল ফুডস এর শুভাকাঙ্খী, আপনাদের সেবার মান কে উন্নয়নের লক্ষ্যে
+          আমরা ওয়েবসাইট তৈরির কাজ করে যাচ্ছি....। খুব শীঘ্রই সকল ফিচার আপডেট করা
+          হবে। আদিল ফুডস এর সঙ্গে থাকার জন্য আন্তরিক ধন্যবাদ।
+        </p>
+      </Marquee>
       <Content style={{ padding: "0 50px" }}>
         <div className="site-layout-content">{children}</div>
       </Content>

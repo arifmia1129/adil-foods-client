@@ -9,7 +9,7 @@ export default function CustomFooter() {
     <div
       style={{
         textAlign: "center",
-        marginTop: 200,
+        marginTop: 50,
       }}
     >
       <Row style={{ width: "100%" }}>

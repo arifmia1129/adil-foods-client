@@ -9,6 +9,8 @@ import "./globals.css";
 import { ConfigProvider } from "antd";
 import AlertVideoModal from "@/component/AlertVideoModal";
 import { useState } from "react";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { primaryColor } from "@/utils/color";
 
 // export const metadata: Metadata = {
 //   title: "Adil Foods BD",
@@ -51,6 +53,21 @@ export default function RootLayout({
             isModalOpen={isModalOpen}
             handleCancel={() => setIsModalOpen(false)}
           />
+          <div
+            style={{
+              position: "fixed",
+              bottom: 50,
+              right: 50,
+              zIndex: 9999,
+              backgroundColor: primaryColor,
+              padding: 10,
+              borderRadius: "100%",
+            }}
+          >
+            <ShoppingCartOutlined
+              style={{ fontSize: 32, padding: 5, color: "#fff" }}
+            />
+          </div>
         </StyledComponentsRegistry>
       </body>
     </html>
