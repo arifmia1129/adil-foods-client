@@ -31,7 +31,12 @@ export default function AlertVideoModal({ isModalOpen, handleCancel }: any) {
   return (
     isClient && (
       <>
-        <Modal open={isModalOpen} onOk={handleCancel} onCancel={handleCancel}>
+        <Modal
+          style={{ position: "relative", zIndex: 9999 }}
+          open={isModalOpen}
+          onOk={handleCancel}
+          onCancel={handleCancel}
+        >
           <div
             style={{ display: "flex", justifyContent: "center", width: "100%" }}
           >

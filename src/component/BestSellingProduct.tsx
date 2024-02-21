@@ -1,8 +1,10 @@
+"use client";
 import { Button, Card, Col, Row } from "antd";
 import products from "../data/products.json";
 import Image from "next/image";
 import { primaryColor } from "@/utils/color";
 import Meta from "antd/es/card/Meta";
+import { handleStoreRemoveProduct } from "@/utils/functions";
 
 export default function BestSellingProduct() {
   return (
@@ -30,6 +32,7 @@ export default function BestSellingProduct() {
                     type="primary"
                     size="large"
                     style={{ backgroundColor: primaryColor, borderRadius: 10 }}
+                    onClick={() => handleStoreRemoveProduct(product)}
                   >
                     Add To Cart
                   </Button>,

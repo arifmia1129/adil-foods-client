@@ -31,7 +31,7 @@ const CustomRootLayout = ({ children }: { children: React.ReactNode }) => {
       </Header>
       <Marquee
         gradient={false}
-        style={{ position: "sticky", top: 0, zIndex: 9999 }}
+        style={{ position: "sticky", top: 0, zIndex: 999 }}
       >
         <p>
           প্রিয় আদিল ফুডস এর শুভাকাঙ্খী, আপনাদের সেবার মান কে উন্নয়নের লক্ষ্যে
