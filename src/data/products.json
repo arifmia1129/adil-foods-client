@@ -3,36 +3,42 @@
     "id": 1,
     "name": "নারিকেলে লাড্ডু ১ বাটিঁ",
     "price": 300,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/FWVb7GG/368264850-255226994018424-3976106526032180885-n.jpg"
   },
   {
     "id": 2,
     "name": "মধু",
     "price": 500,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/r63Vb90/369637496-255855127288944-9041265803350611487-n.jpg"
   },
   {
     "id": 3,
     "name": "মসলা",
     "price": 300,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/n1gL39L/366066154-250504131157377-9044574939070410063-n.jpg"
   },
   {
     "id": 4,
     "name": "চিয়া সিড",
     "price": 400,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/jfhfBpT/378387320-268738119333978-3771960869311838271-n.jpg"
   },
   {
     "id": 5,
     "name": "Moringa powder বা সজিনা পাতা গুঁড়া",
     "price": 300,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/3WyNKQW/367750367-254655100742280-7745571077979628630-n.jpg"
   },
   {
     "id": 5,
     "name": "সরিষার তেল",
     "price": 1500,
+    "unit": "kg",
     "imageUrl": "https://i.ibb.co/vLrqxw3/369722505-255839497290507-2325308821398658193-n.jpg"
   }
 ]

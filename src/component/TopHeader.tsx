@@ -5,7 +5,7 @@ const TopHeader = () => {
   return (
     <Row
       style={{
-        minWidth: "100vw",
+        minWidth: "100%",
         backgroundColor: primaryColor,
         height: "100%",
         padding: 10,

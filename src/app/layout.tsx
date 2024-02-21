@@ -18,7 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        style={{
+          maxWidth: "99vw",
+          marginLeft: "auto",
+          marginRight: "auto",
+          overflowX: "hidden",
+        }}
+      >
         <StyledComponentsRegistry>
           <ConfigProvider
             theme={{

@@ -7,7 +7,7 @@ import Meta from "antd/es/card/Meta";
 export default function AllProducts() {
   return (
     <div style={{ marginTop: 50 }}>
-      <h1 style={{ fontSize: 42, textAlign: "center", marginBottom: 20 }}>
+      <h1 style={{ fontSize: 30, textAlign: "center", marginBottom: 20 }}>
         All Products
       </h1>
       <Row justify="center">
@@ -37,7 +37,7 @@ export default function AllProducts() {
               >
                 <Meta
                   title={product?.name}
-                  description={`৳${product?.price}`}
+                  description={`৳${product?.price}/${product?.unit}`}
                 />
               </Card>
             </Row>
