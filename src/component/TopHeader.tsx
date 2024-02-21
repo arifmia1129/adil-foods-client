@@ -22,7 +22,13 @@ const TopHeader = () => {
         <h3 style={{ textAlign: "center" }}>Best Food, Healthy Life..</h3>
       </Col>
       <Col xs={24} sm={24} md={8} lg={8}>
-        <h3 style={{ textAlign: "center" }}>Visit our Facebook</h3>
+        <a
+          href="https://www.facebook.com/adilfood/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h3 style={{ textAlign: "center" }}>Visit our Facebook</h3>
+        </a>
       </Col>
     </Row>
   );
