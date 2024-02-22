@@ -1,10 +1,31 @@
+"use client";
+
 import { Button, Card, Col, Row } from "antd";
 import products from "../data/products.json";
 import Image from "next/image";
 import { primaryColor } from "@/utils/color";
 import Meta from "antd/es/card/Meta";
+import { useEffect, useState } from "react";
+import { handleStoreRemoveProduct } from "@/utils/functions";
 
 export default function AllProducts() {
+  const [storedProducts, setStoredProducts] = useState<any>([]);
+
+  const handleRetrievedStoredProducts = () => {
+    const products = localStorage.getItem("cart");
+
+    if (products) {
+      const parsedProducts = JSON.parse(products);
+
+      if (Array.isArray(parsedProducts) && parsedProducts.length) {
+        setStoredProducts(parsedProducts);
+      }
+    }
+  };
+
+  useEffect(() => {
+    handleRetrievedStoredProducts();
+  }, []);
   return (
     <div style={{ marginTop: 50 }}>
       <h1 style={{ fontSize: 30, textAlign: "center", marginBottom: 20 }}>
@@ -29,9 +50,25 @@ export default function AllProducts() {
                     key={product?.id}
                     type="primary"
                     size="large"
-                    style={{ backgroundColor: primaryColor, borderRadius: 10 }}
+                    onClick={() => {
+                      handleStoreRemoveProduct(product);
+                      // isProductStored(product);
+                      handleRetrievedStoredProducts();
+                    }}
+                    style={{
+                      backgroundColor: storedProducts.find(
+                        (storedProduct: any) => product.id === storedProduct.id
+                      )
+                        ? "red"
+                        : primaryColor,
+                      borderRadius: 10,
+                    }}
                   >
-                    Add To Cart
+                    {storedProducts.find(
+                      (storedProduct: any) => product.id === storedProduct.id
+                    )
+                      ? "Remove To Cart"
+                      : " Add To Cart"}
                   </Button>,
                 ]}
               >
