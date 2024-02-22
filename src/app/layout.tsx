@@ -8,7 +8,7 @@ import CustomRootLayout from "@/component/layout/RootLayout";
 import "./globals.css";
 import { ConfigProvider } from "antd";
 import AlertVideoModal from "@/component/AlertVideoModal";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { primaryColor } from "@/utils/color";
 
@@ -17,12 +17,38 @@ import { primaryColor } from "@/utils/color";
 //   description: "অর্গানিক খাদ্যের সমাহার",
 // };
 
+export const MainContext = createContext<any>({});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [storedProducts, setStoredProducts] = useState<any>([]);
+
+  const handleRetrievedStoredProducts = () => {
+    if (typeof window !== "undefined") {
+      const products = localStorage.getItem("cart");
+
+      if (products) {
+        const parsedProducts = JSON.parse(products);
+
+        if (Array.isArray(parsedProducts) && parsedProducts.length) {
+          setStoredProducts(parsedProducts);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    handleRetrievedStoredProducts();
+  }, []);
+
+  const value = {
+    handleRetrievedStoredProducts,
+    storedProducts,
+  };
 
   return (
     <html lang="en">
@@ -47,7 +73,9 @@ export default function RootLayout({
               },
             }}
           >
-            <CustomRootLayout>{children}</CustomRootLayout>
+            <MainContext.Provider value={value as any}>
+              <CustomRootLayout>{children}</CustomRootLayout>
+            </MainContext.Provider>
           </ConfigProvider>
           <AlertVideoModal
             isModalOpen={isModalOpen}
@@ -62,8 +90,23 @@ export default function RootLayout({
               backgroundColor: primaryColor,
               padding: 10,
               borderRadius: "100%",
+              width: 70,
+              height: 70,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
+            <p
+              style={{
+                position: "absolute",
+                right: 10,
+                top: 10,
+                color: "#fff",
+              }}
+            >
+              {storedProducts?.length}
+            </p>
             <ShoppingCartOutlined
               style={{ fontSize: 32, padding: 5, color: "#fff" }}
             />

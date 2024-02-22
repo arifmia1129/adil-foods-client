@@ -5,27 +5,12 @@ import Image from "next/image";
 import { primaryColor } from "@/utils/color";
 import Meta from "antd/es/card/Meta";
 import { handleStoreRemoveProduct, isProductStored } from "@/utils/functions";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MainContext } from "@/app/layout";
 
 export default function BestSellingProduct() {
-  const [storedProducts, setStoredProducts] = useState<any>([]);
-
-  const handleRetrievedStoredProducts = () => {
-    const products = localStorage.getItem("cart");
-
-    if (products) {
-      const parsedProducts = JSON.parse(products);
-
-      if (Array.isArray(parsedProducts) && parsedProducts.length) {
-        setStoredProducts(parsedProducts);
-      }
-    }
-  };
-
-  useEffect(() => {
-    handleRetrievedStoredProducts();
-  }, []);
-
+  const { storedProducts, handleRetrievedStoredProducts } =
+    useContext(MainContext);
   return (
     <div style={{ marginTop: 50 }}>
       <h1 style={{ fontSize: 30, textAlign: "center", marginBottom: 20 }}>
@@ -67,7 +52,7 @@ export default function BestSellingProduct() {
                     {storedProducts.find(
                       (storedProduct: any) => product.id === storedProduct.id
                     )
-                      ? "Remove To Cart"
+                      ? "Remove From Cart"
                       : " Add To Cart"}
                   </Button>,
                 ]}
