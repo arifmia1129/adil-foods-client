@@ -8,6 +8,7 @@ import { handleStoreRemoveProduct, quantityChange } from "@/utils/functions";
 export default function cart() {
   const { storedProducts, isLoading, handleRetrievedStoredProducts } =
     useContext(MainContext);
+
   const columns = [
     {
       title: "Item",
@@ -96,6 +97,10 @@ export default function cart() {
     },
   ];
 
+  const totalPrice = storedProducts?.reduce((acc: number, current: any) => {
+    return acc + Number(current?.price) * Number(current?.quantity);
+  }, 0);
+
   return (
     <div
       style={{
@@ -116,6 +121,27 @@ export default function cart() {
         dataSource={storedProducts}
         pagination={false}
       />
+
+      <div style={{ borderTop: "2px solid gray" }}>
+        <div
+          style={{
+            maxWidth: 820,
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <div>
+            <p>Items total:</p>
+            <p>Delivery:</p>
+            <p style={{ fontSize: 16, fontWeight: "bold" }}>Total:</p>
+          </div>
+          <div>
+            <p style={{ textAlign: "right" }}>{totalPrice}</p>
+            <p style={{ textAlign: "right" }}>{100}</p>
+            <p style={{ textAlign: "right" }}>{totalPrice + 100}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
