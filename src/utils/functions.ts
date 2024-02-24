@@ -49,3 +49,25 @@ export const isProductStored = (product: any) => {
     }
   }
 };
+
+export const quantityChange = (type: "increase" | "decrease", id: number) => {
+  if (typeof window !== "undefined") {
+    const products = localStorage.getItem("cart");
+
+    const parsedProducts = JSON.parse(products as any);
+
+    const isExist = parsedProducts.find(
+      (stPro: any) => Number(stPro.id) === id
+    );
+
+    if (isExist) {
+      if (type === "increase") {
+        isExist.quantity = Number(isExist.quantity) + 1;
+      } else if (type === "decrease") {
+        isExist.quantity = Number(isExist.quantity) - 1;
+      }
+
+      localStorage.setItem("cart", JSON.stringify(parsedProducts));
+    }
+  }
+};

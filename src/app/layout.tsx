@@ -11,6 +11,7 @@ import AlertVideoModal from "@/component/AlertVideoModal";
 import { createContext, useEffect, useState } from "react";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { primaryColor } from "@/utils/color";
+import Link from "next/link";
 
 // export const metadata: Metadata = {
 //   title: "Adil Foods BD",
@@ -26,18 +27,25 @@ export default function RootLayout({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [storedProducts, setStoredProducts] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleRetrievedStoredProducts = () => {
-    if (typeof window !== "undefined") {
-      const products = localStorage.getItem("cart");
+    setIsLoading(true);
+    try {
+      if (typeof window !== "undefined") {
+        const products = localStorage.getItem("cart");
 
-      if (products) {
-        const parsedProducts = JSON.parse(products);
+        if (products) {
+          const parsedProducts = JSON.parse(products);
 
-        if (Array.isArray(parsedProducts) && parsedProducts.length) {
-          setStoredProducts(parsedProducts);
+          if (Array.isArray(parsedProducts) && parsedProducts.length) {
+            setStoredProducts(parsedProducts);
+          }
         }
       }
+    } catch (error) {
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -48,6 +56,7 @@ export default function RootLayout({
   const value = {
     handleRetrievedStoredProducts,
     storedProducts,
+    isLoading,
   };
 
   return (
@@ -77,40 +86,42 @@ export default function RootLayout({
               <CustomRootLayout>{children}</CustomRootLayout>
             </MainContext.Provider>
           </ConfigProvider>
-          <AlertVideoModal
+          {/* <AlertVideoModal
             isModalOpen={isModalOpen}
             handleCancel={() => setIsModalOpen(false)}
-          />
-          <div
-            style={{
-              position: "fixed",
-              bottom: 50,
-              right: 50,
-              zIndex: 9999,
-              backgroundColor: primaryColor,
-              padding: 10,
-              borderRadius: "100%",
-              width: 70,
-              height: 70,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <p
+          /> */}
+          <Link href={"/cart"}>
+            <div
               style={{
-                position: "absolute",
-                right: 10,
-                top: 10,
-                color: "#fff",
+                position: "fixed",
+                bottom: 50,
+                right: 50,
+                zIndex: 9999,
+                backgroundColor: primaryColor,
+                padding: 10,
+                borderRadius: "100%",
+                width: 70,
+                height: 70,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              {storedProducts?.length}
-            </p>
-            <ShoppingCartOutlined
-              style={{ fontSize: 32, padding: 5, color: "#fff" }}
-            />
-          </div>
+              <p
+                style={{
+                  position: "absolute",
+                  right: 10,
+                  top: 10,
+                  color: "#fff",
+                }}
+              >
+                {storedProducts?.length}
+              </p>
+              <ShoppingCartOutlined
+                style={{ fontSize: 32, padding: 5, color: "#fff" }}
+              />
+            </div>
+          </Link>
         </StyledComponentsRegistry>
       </body>
     </html>
