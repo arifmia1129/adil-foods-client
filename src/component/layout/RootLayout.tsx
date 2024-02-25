@@ -29,10 +29,7 @@ const CustomRootLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="demo-logo" />
         <MenuItems />
       </Header>
-      <Marquee
-        gradient={false}
-        style={{ position: "sticky", top: 0, zIndex: 999 }}
-      >
+      <Marquee gradient={false}>
         <p>
           প্রিয় আদিল ফুডস এর শুভাকাঙ্খী, আপনাদের সেবার মান কে উন্নয়নের লক্ষ্যে
           আমরা ওয়েবসাইট তৈরির কাজ করে যাচ্ছি....। খুব শীঘ্রই সকল ফিচার আপডেট করা

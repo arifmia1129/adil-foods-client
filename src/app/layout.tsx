@@ -18,8 +18,6 @@ import Link from "next/link";
 //   description: "অর্গানিক খাদ্যের সমাহার",
 // };
 
-export const MainContext = createContext<any>({});
-
 export default function RootLayout({
   children,
 }: {
@@ -127,3 +125,4 @@ export default function RootLayout({
     </html>
   );
 }
+export const MainContext = createContext<any>({});
